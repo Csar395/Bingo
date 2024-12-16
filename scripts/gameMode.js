@@ -140,6 +140,92 @@ export function addYourOwnCells() {
         ]
     })
 }
+const inputArray = [];
+
+export function addYourOwnCellsInFiveMinutes() {
+
+    const createDiv = document.createElement("div");
+    const label = document.createElement("label");
+    label.setAttribute("for", "create-own-cells");
+    label.innerText = `Add Cell Text: `;
+    createDiv.appendChild(label);
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.setAttribute("id", "create-own-cells");
+    input.setAttribute("class", "intro-input");
+    input.setAttribute("placeholder", "Enter here");
+    createDiv.appendChild(input);
+
+    // Countdown-Anzeige hinzufügen
+    const countdownDisplay = document.createElement("div");
+    countdownDisplay.setAttribute("id", "countdown-timer");
+    countdownDisplay.style.marginTop = "10px";
+    countdownDisplay.style.textAlign = "center";
+    countdownDisplay.style.fontSize = "18px";
+    createDiv.appendChild(countdownDisplay);
+
+    // Countdown starten
+    startCountdown(5, countdownDisplay, () => {
+        // Aktion nach Ablauf des Countdowns
+        document.querySelector(".popup-overlay").remove();
+        showErrorPopup("Time's up, game starts now!");
+        giveCellsTheirText(inputArray);
+        document.querySelector(".popup-overlay").remove();
+        hide(document.getElementById("game-mode-container"));
+        block(document.getElementById("bingo-outer-container"));
+        localStorage.removeItem("actualState");
+        localStorage.setItem("actualState", "bingo");
+    });
+
+    createPopup(document.getElementById("game-mode-container"), createDiv, {
+        title: "Create your own cells",
+        buttons: [
+            {
+                text: "Add Input",
+                handler: () => {
+                    if (input.value === "") {
+                        document.getElementById("create-own-cells").style.border = "2px solid red";
+                    } else {
+                        inputArray.push(input.value);
+                        input.value = "";
+                        document.getElementById("create-own-cells").style.border = "none";
+                    }
+                }
+            },
+            {
+                text: "Show",
+                handler: () => {
+                    showErrorPopup(`${inputArray}`);
+                }
+            }
+        ]
+    });
+}
+
+// Countdown-Funktion
+function startCountdown(minutes, displayElement, onComplete) {
+    const durationInSeconds = minutes * 60;
+    let remainingTime = durationInSeconds;
+
+    const interval = setInterval(() => {
+        const mins = Math.floor(remainingTime / 60);
+        const secs = remainingTime % 60;
+
+        displayElement.textContent = `Verbleibende Zeit: ${mins}:${secs.toString().padStart(2, "0")}`;
+
+        if (remainingTime <= 0) {
+            clearInterval(interval); // Countdown stoppen
+            displayElement.textContent = "Zeit abgelaufen!";
+            if (typeof onComplete === "function") {
+                onComplete(); // Führe die Abschlussaktion aus
+            }
+        }
+
+        remainingTime--;
+    }, 1000);
+}
+
 
 export function returnPreparedCells(select) {
 

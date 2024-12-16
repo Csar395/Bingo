@@ -2,7 +2,7 @@ import { login, logout } from './scripts/login.js';
 import { updateUI, saveBingoState, saveGameMode } from "./scripts/storage.js";
 import { checkCode, joinOrCreateNextStep, generateGroupCode } from './scripts/joinOrCreate.js'
 import { hide, block, createPopup, showErrorPopup, adjustFontSizeForButtons } from "./scripts/utils.js";
-import { addYourOwnCells, returnPreparedCells } from "./scripts/gameMode.js";
+import {addYourOwnCells, addYourOwnCellsInFiveMinutes, returnPreparedCells} from "./scripts/gameMode.js";
 import { giveCellsTheirText, clickACell, bingoCells } from "./scripts/bingo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -89,6 +89,9 @@ createButton.addEventListener('click', () => {
 })
 
 const gameModeOne = document.getElementById('five-minute-input-button');
+gameModeOne.addEventListener('click', () => {
+    addYourOwnCellsInFiveMinutes();
+})
 
 const gameModeTwo = document.getElementById('add-your-own-cells-button');
 gameModeTwo.addEventListener('click', () => {
