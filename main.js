@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const loginButton = document.getElementById('login-button');
 loginButton.addEventListener('click', () => {
+    localStorage.removeItem('actualState');
     localStorage.setItem("actualState", "join-or-create");
     login();
 });
@@ -18,6 +19,7 @@ loginButton.addEventListener('click', () => {
 const joinButton = document.getElementById('join-group-mode');
 joinButton.addEventListener('click', () => {
 
+    localStorage.removeItem("actualState");
     localStorage.setItem("actualState", "game-mode");
     // Inhalt für das Popup erstellen
     const joinDiv = document.createElement('div');
@@ -59,6 +61,9 @@ joinButton.addEventListener('click', () => {
 const createButton = document.getElementById('create-group-mode');
 createButton.addEventListener('click', () => {
 
+    localStorage.removeItem("actualState");
+    localStorage.setItem("actualState", "game-mode");
+
     const groupId = generateGroupCode();
     const createDiv = document.createElement('div');
     const h2 = document.createElement("h2");
@@ -86,7 +91,7 @@ createButton.addEventListener('click', () => {
 const gameModeOne = document.getElementById('five-minute-input-button');
 
 const gameModeTwo = document.getElementById('add-your-own-cells-button');
-gameModeTwo.addEventListener('click', (e) => {
+gameModeTwo.addEventListener('click', () => {
     addYourOwnCells()
 })
 
@@ -98,7 +103,7 @@ select.addEventListener('change', () => {
     }
 });
 
-gameModeThree.addEventListener('click', (e) => {
+gameModeThree.addEventListener('click', () => {
     const chosenCells = returnPreparedCells(select.value);
     hide(document.getElementById("game-mode-container"))
     block(document.getElementById("bingo-outer-container"))
@@ -107,6 +112,8 @@ gameModeThree.addEventListener('click', (e) => {
     document.getElementById("h1-username").innerText = `${localStorage.getItem("username")}' Bingo-Plate`;
     saveBingoState(bingoCells);
     saveGameMode(select.value);
+    localStorage.removeItem("actualState");
+    localStorage.setItem("actualState", "bingo");
 })
 
 const bingoButtons = document.getElementsByClassName("bingo-button");
@@ -118,26 +125,31 @@ for (let button of bingoButtons) {
 
 /* ========== navbar Buttons ========== */
 
-document.getElementById("nav-bar-logout").addEventListener("click", () => {
+const logoutButton = document.getElementById("nav-bar-logout");
+
+logoutButton.addEventListener("click", (event) => {
+    // Verhindert, dass das Dropdown-Menü schließt
+    event.stopPropagation();
     const logoutDiv = document.createElement("div");
     const p = document.createElement("p");
     p.innerText = "Are you sure you want to logout?";
     logoutDiv.appendChild(p);
-
-    createPopup(document.getElementById("button-space"), logoutDiv, {
+    createPopup(document.getElementById(`${localStorage.getItem("actualState")}-box`), logoutDiv, {
         title: "Logout",
         buttons: [
             {
-                text: "logout", handler: () => {
+                text: "logout",
+                handler: () => {
                     logout();
-                    document.querySelector(".popup-overlay").remove()
+                    document.querySelector(".popup-overlay").remove();
                 }
             },
             {
-                text: "Cancel", handler: () => {
-                    document.querySelector(".popup-overlay").remove()
+                text: "Cancel",
+                handler: () => {
+                    document.querySelector(".popup-overlay").remove();
                 }
             }
         ]
-    })
-})
+    });
+});

@@ -88,7 +88,6 @@ const weihnachtsfilmBingo = [
 export function addYourOwnCells() {
 
     const inputArray = []
-    let current = 0;
 
     const createDiv = document.createElement("div");
     const label = document.createElement("label");
@@ -133,6 +132,8 @@ export function addYourOwnCells() {
                         document.querySelector(".popup-overlay").remove();
                         hide(document.getElementById("game-mode-container"));
                         block(document.getElementById("bingo-outer-container"));
+                        localStorage.removeItem("actualState");
+                        localStorage.setItem("actualState", "bingo");
                     }
                 }
             }
