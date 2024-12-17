@@ -10,6 +10,11 @@
             #333333,
             #4c4c4c
     );
+    --color-hamburger-grey-style: repeating-linear-gradient(
+            -45deg,
+            #333333,
+            #bdbdbd
+    );
     --button-color: #ffcc00;
     --button-color-hover: #ff9900;
 }
@@ -26,7 +31,7 @@ body, html{
     background: var(--color-background-orange-style);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
 }
 
 /* ========== Navigation Styles ========== */
@@ -124,6 +129,92 @@ nav ul button:hover {
     display: none;
 }
 
+/* ========== Hamburger Menu ========== */
+
+.hamburger-menu {
+    z-index: 1001;
+    height: 3.5vh;
+    width: 3.5vh;
+    margin-left: 1.5vh;
+    margin-right: auto;
+    position: relative;
+}
+
+.hamburger-menu span {
+    height: 0.3rem;
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 0.1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+}
+
+.hamburger-menu span:nth-child(1) {
+    top: 25%
+}
+
+.hamburger-menu span:nth-child(3) {
+    top: 75%
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.off-screen-menu {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    background: #333333;
+    height: 100vh;
+    width: 100%;
+    max-width: 70vw;
+    position: fixed;
+    top: 0;
+    left: -70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: .3s ease;
+}
+
+.off-screen-menu.active {
+    left: 0;
+}
+
+.ham-menu-button {
+    color: aliceblue;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    width: 80%;
+    height: auto;
+    margin: 10% auto;
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    padding: 3vw;
+    border-radius: 3vw;
+}
+
+.ham-menu-button:hover {
+    background: var(--button-color-hover);
+}
+
 /* ========== Header Styles ========== */
 header {
     display: flex;
@@ -133,6 +224,7 @@ header {
 
 main {
     flex-grow: 1;
+    margin-bottom: 15%;
 }
 
 /* ========== Container & Text Styles ========== */
@@ -217,26 +309,27 @@ main {
 /* ========== Bingo Container Styles ========== */
 .bingo-outer-container {
     position: relative;
-    width: 60%;
+    width: 80vw;
     height: auto;
     background: repeating-linear-gradient(
     -45deg,
     #333333,
     #4c4c4c
     );
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 5% auto;
-    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     z-index: 1;
+    padding: 2.5vw;
 }
 
 .bingo-outer-container h1 {
-    margin: 5% 25% 0 25%;
+    margin-top: 5vh;
     font-size: 2em;
     color: aliceblue;
     text-shadow: 0 0 8px rgba(0, 0, 0, 1);
@@ -257,33 +350,29 @@ main {
     #ff9900,
     #facf43
     );
-    width: 485px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-    margin: 4% auto;
-    position: relative; /* Für zentrierte Win-Box */
-    border-radius: 10px 10px 15px 10px;
-    border: 3px solid #333333;
+    margin: 5vh auto;
+    width: 42vw;
+    height: 42vw;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 5 Spalten */
+    border-radius: 2.5vh;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 .top-left {
-    border-top-left-radius: 10px;
+    border-top-left-radius: 2.5vh;
 }
 
 .top-right {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 2.5vh;
 }
 
 .bottom-left {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 2.5vh;
 }
 
 .bottom-right {
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 2.5vh;
 }
 
 .bingo-line {
@@ -293,8 +382,8 @@ main {
 }
 
 .bingo-element {
-    width: 80px;
-    height: 80px;
+    width: 7vw;  /* 100% der Spaltenbreite */
+    height: 7vw;
 }
 
 .bingo-element button {
@@ -327,12 +416,15 @@ button.clicked {
 }
 
 .bingo-letter, .bingo-number {
+    background: rgba(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 20px;
 }
+
+
 
 /* ========== Win-Box Styles ========== */
 .win-box {
@@ -384,10 +476,9 @@ footer {
 }
 
 .footer-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
 }
 
 .footer-section {
@@ -402,11 +493,11 @@ footer {
 
 .footer-section ul {
     list-style-type: none;
-    padding: 0;
+    margin: auto;
 }
 
 .footer-section ul li {
-    margin: 5px 0;
+    margin: 5px auto;
 }
 
 .footer-section ul li a {
@@ -468,3 +559,119 @@ footer form button:hover {
     background-color: #ff9900;
 }
 
+/* ========== media Queries ========== */
+
+@media (min-width: 1920px) {
+    .bingo-container {
+        width: 33vw;
+        height: 33vw;
+    }
+    .bingo-element {
+        width: 5.5vw;
+        height: 5.5vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    .bingo-container {
+        width: 54vw;
+        height: 54vw;
+    }
+    .bingo-element {
+        width: 9vw;
+        height: 9vw;
+    }
+    footer {
+        font-size: 0.7rem;
+    }
+    .container {
+        min-height: 50vh;
+    }
+    .box {
+        grid-template-columns: 2fr 1fr;
+        gap: 5vw;
+    }
+    main {
+        height: 80vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 5vh;
+    }
+    .nav-bar-buttons {
+        display: none;
+    }
+    .tringo-title {
+        font-size: 3.5vh;
+        margin-right: 3vw;
+    }
+    .container {
+        height: auto;
+        min-height: 60vh;
+    }
+    .box {
+        grid-template-columns: 2fr 1fr;
+        gap: 5vw;
+    }
+    .box label, .box button .box select {
+        margin-top: 5vh;
+    }
+    .box button, .box select {
+        margin-left: 2vh;
+    }
+    .login-box {
+        height: 50vh;
+        font-size: 2vh;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+    .bingo-outer-container {
+        width: 90vw;
+        margin-top: 15vw;
+        margin-bottom: 15vw;
+    }
+    #h1-username {
+        font-size: 1.5rem;
+    }
+    .bingo-container {
+        width: 80vw;
+        height: 80vw;
+    }
+    .bingo-element {
+        width: calc(80vw/6);
+        height: calc(80vw/6);
+    }
+    .bingo-element button {
+        font-size: 0.6rem;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column; /* Elemente untereinander anordnen */
+        align-items: center;   /* Zentriere die Inhalte */
+        gap: 20px;             /* Mehr Platz zwischen den Abschnitten */
+    }
+
+    .footer-section {
+        flex: 1 1 auto;        /* Breite wird automatisch an die Inhalte angepasst */
+        min-width: unset;      /* Entferne die feste Mindestbreite */
+        text-align: center;    /* Zentriere den Text */
+    }
+
+    footer form {
+        width: 100%;           /* Formular nimmt die gesamte Breite ein */
+        padding: 0 10px;       /* Leichter Innenabstand für bessere Lesbarkeit */
+    }
+
+    footer form input {
+        width: 90%;            /* Breite des Eingabefelds relativ zur Gesamtbreite */
+    }
+
+}
