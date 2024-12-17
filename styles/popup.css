@@ -1,0 +1,123 @@
+/* Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup-Container */
+.popup-container {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Popup-Titel */
+.popup-title {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Popup-Inhalt */
+.popup-content {
+    margin: 10px 0;
+}
+
+/* Button-Container */
+.popup-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Popup-Button */
+.popup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #007BFF;
+    color: #fff;
+    font-size: 0.9em;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-button:hover {
+    background: #0267d3;
+    font-weight: 600;
+}
+
+/* Schließen-Button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Overlay */
+.error-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup-Container */
+.error-popup-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Fehlermeldung */
+.error-popup-container p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* "Okay"-Button */
+.error-popup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #fb0c06;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.error-popup-button:hover {
+    background-color: #c9302c;
+    font-weight: 600;
+}

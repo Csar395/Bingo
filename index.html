@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>BingoApp</title>
+</head>
+<body>
+<nav>
+    <h1>Tringo</h1>
+    <ul>
+        <li><button style="display: none" id="group-id"></button></li>
+        <li id="nav-bar-button-group" style="display: none">
+            <button type="button" id="group-button" class="nav-bar-button">Group</button>
+            <div class="dropdown-menu" id="players-dropdown">
+                <button>Edit</button>
+                <button>Remove All</button>
+            </div>
+        </li>
+        <li id="nav-bar-button-settings-group">
+            <button type="button" id="stats-button" class="nav-bar-button">Settings</button>
+            <div class="dropdown-menu" id="stats-dropdown">
+                <button>Example</button>
+                <button>Example</button>
+                <button>Example</button>
+            </div>
+        </li>
+        <li id="nav-bar-button-profile" style="display: none">
+            <button type="button" id="profile-button" class="nav-bar-button">Profile</button>
+            <div class="dropdown-menu" id="profile-dropdown">
+                <button>Edit Profile</button>
+                <button id="nav-bar-logout" type="button">Logout</button>
+            </div>
+        </li>
+    </ul>
+</nav>
+<main>
+    <div id="button-space"></div>
+    <div id="login-container" class="login-container container">
+        <div class="login-box box">
+            <label for="username" class="intro-label">Username:</label>
+            <input type="text" id="username" class="intro-input" placeholder="Enter Username">
+        </div>
+        <button type="submit" id="login-button" class="intro-button">Submit</button>
+    </div>
+    <div id="join-or-create-container" class="join-or-create-container container" style="display: none">
+        <h2 id="welcome-message" style="color: white"></h2>
+        <div class="join-or-create-box box">
+            <label for="join-group-mode" class="intro-label">Join a group:</label>
+            <button type="button" id="join-group-mode" class="intro-button">Click here</button>
+            <label for="create-group-mode" class="intro-label">Create a new Group</label>
+            <button type="button" id="create-group-mode" class="intro-button">Click here</button>
+        </div>
+    </div>
+    <div id="game-mode-container" class="game-mode-container container" style="display: none">
+        <div id="game-mode-box" class="game-mode-box box">
+            <label for="five-minute-input-button" class="intro-label">5 Minutes for your group mode</label>
+            <button type="button" id="five-minute-input-button" class="five-minute-input-button intro-button">Click here</button>
+            <label for="add-your-own-cells-button" class="intro-label">Add your own Cells</label>
+            <button type="button" id="add-your-own-cells-button" class="add-your-own-cells-button intro-button">Click here</button>
+            <label for="choose-prepared-cells-dropdown" class="intro-label">Choose a prepared template</label>
+            <select id="choose-prepared-cells-dropdown" class="choose-prepared-cells-dropdown intro-select">
+                <option value="" disabled selected>...</option>
+                <option value="1">Lars-Bingo</option>
+                <option value="2">Martin-Bingo</option>
+                <option value="3">Weihnachtsfilm-Bingo</option>
+            </select>
+            <button type="submit" id="submit-prepared-cells" class="intro-button" style="display: none;">Submit</button>
+        </div>
+    </div>
+    <div id="bingo-outer-container" class="bingo-outer-container" style="display: none">
+        <h1 id="h1-username"></h1>
+        <div id="bingo-box" class="bingo-container">
+            <div class="bingo-header bingo-line">
+                <div class="bingo-letter bingo-element top-left"></div>
+                <div class="bingo-letter bingo-element">B</div>
+                <div class="bingo-letter bingo-element">I</div>
+                <div class="bingo-letter bingo-element">N</div>
+                <div class="bingo-letter bingo-element">G</div>
+                <div class="bingo-letter bingo-element top-right">O</div>
+            </div>
+            <div class="bingo-line-1 bingo-line">
+                <div class="bingo-number bingo-element">1</div>
+                <div id="bingo-element-1" class="bingo-element"><button class="bingo-button top-left" data-id="1" type="button">Example</button></div>
+                <div id="bingo-element-2" class="bingo-element"><button class="bingo-button" data-id="2" type="button">Example</button></div>
+                <div id="bingo-element-3" class="bingo-element"><button class="bingo-button" data-id="3" type="button">Example</button></div>
+                <div id="bingo-element-4" class="bingo-element"><button class="bingo-button" data-id="4" type="button">Example</button></div>
+                <div id="bingo-element-5" class="bingo-element"><button class="bingo-button" data-id="5" type="button">Example</button></div>
+            </div>
+            <div class="bingo-line-2 bingo-line">
+                <div class="bingo-number bingo-element">2</div>
+                <div id="bingo-element-6" class="bingo-element"><button class="bingo-button" data-id="6" type="button">Example</button></div>
+                <div id="bingo-element-7" class="bingo-element"><button class="bingo-button" data-id="7" type="button">Example</button></div>
+                <div id="bingo-element-8" class="bingo-element"><button class="bingo-button" data-id="8" type="button">Example</button></div>
+                <div id="bingo-element-9" class="bingo-element"><button class="bingo-button" data-id="9" type="button">Example</button></div>
+                <div id="bingo-element-10" class="bingo-element"><button class="bingo-button" data-id="10" type="button">Example</button></div>
+            </div>
+            <div class="bingo-line-3 bingo-line">
+                <div class="bingo-number bingo-element">3</div>
+                <div id="bingo-element-11" class="bingo-element"><button class="bingo-button" data-id="11" type="button">Example</button></div>
+                <div id="bingo-element-12" class="bingo-element"><button class="bingo-button" data-id="12" type="button">Example</button></div>
+                <div id="bingo-element-13" class="bingo-element"><button class="bingo-button" data-id="13" type="button">Example</button></div>
+                <div id="bingo-element-14" class="bingo-element"><button class="bingo-button" data-id="14" type="button">Example</button></div>
+                <div id="bingo-element-15" class="bingo-element"><button class="bingo-button" data-id="15" type="button">Example</button></div>
+            </div>
+            <div class="bingo-line-4 bingo-line">
+                <div class="bingo-number bingo-element">4</div>
+                <div id="bingo-element-16" class="bingo-element"><button class="bingo-button" data-id="16" type="button">Example</button></div>
+                <div id="bingo-element-17" class="bingo-element"><button class="bingo-button" data-id="17" type="button">Example</button></div>
+                <div id="bingo-element-18" class="bingo-element"><button class="bingo-button" data-id="18" type="button">Example</button></div>
+                <div id="bingo-element-19" class="bingo-element"><button class="bingo-button" data-id="19" type="button">Example</button></div>
+                <div id="bingo-element-20" class="bingo-element"><button class="bingo-button" data-id="20" type="button">Example</button></div>
+            </div>
+            <div class="bingo-line-5 bingo-line">
+                <div class="bingo-number bingo-element bottom-left">5</div>
+                <div id="bingo-element-21" class="bingo-element"><button class="bingo-button" data-id="21" type="button">Example</button></div>
+                <div id="bingo-element-22" class="bingo-element"><button class="bingo-button" data-id="22" type="button">Example</button></div>
+                <div id="bingo-element-23" class="bingo-element"><button class="bingo-button" data-id="23" type="button">Example</button></div>
+                <div id="bingo-element-24" class="bingo-element"><button class="bingo-button" data-id="24" type="button">Example</button></div>
+                <div id="bingo-element-25" class="bingo-element bottom-right"><button class="bingo-button bottom-right" data-id="25" type="button">Example</button></div>
+            </div>
+        </div>
+        <p style="display: none">Game ID: <span id="game-id"></span></p>
+    </div>
+    <div id="resultContainer">
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#privacy">Datenschutzerklärung</a></li>
+                <li><a href="#terms">AGB</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Kontakt</h3>
+            <p>Email: support@example.com</p>
+            <p>Telefon: +49 123 456 789</p>
+        </div>
+        <div class="footer-section">
+            <h3>Folge uns</h3>
+            <ul class="social-links">
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                <button type="submit">Anmelden</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+            <p>&copy; 2024 Isaak Wilms. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+</body>
+<script type="module" src="./main.js"></script>
+</html>
