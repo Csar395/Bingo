@@ -26,6 +26,7 @@ body, html{
     background: var(--color-background-orange-style);
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 /* ========== Navigation Styles ========== */
@@ -131,7 +132,7 @@ header {
 }
 
 main {
-    flex: 1;
+    flex-grow: 1;
 }
 
 /* ========== Container & Text Styles ========== */
@@ -373,6 +374,7 @@ button.clicked {
 
 /* ========== Footer Styles ========== */
 footer {
+    height: auto;
     background-color: #333;
     color: #fff;
     padding: 20px;
