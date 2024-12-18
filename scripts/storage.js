@@ -1,5 +1,5 @@
 // storage.scripts
-import {hide, block} from './utils.js'
+import {hide, block, adjustFontSizeForButtons } from './utils.js'
 import { assignCellsTheirText, bingoCells } from "./bingo.js";
 
 /**
@@ -41,6 +41,7 @@ export function updateUI() {
         hide(login);
         block(joinOrCreate);
         block(document.getElementById('nav-bar-button-profile'));
+        document.getElementById("welcome-message").innerText = `Welcome ${localStorage.getItem('username')}!`;
         if (localStorage.getItem('groupId')) {
             hide(joinOrCreate);
             block(gameMode);
@@ -48,11 +49,12 @@ export function updateUI() {
             block(document.getElementById('group-id'));
             document.getElementById('group-id').innerText = `Group ID: ${localStorage.getItem('groupId')}`;
             if (localStorage.getItem('bingoState')) {
+                adjustFontSizeForButtons()
                 hide(gameMode);
                 block(bingo);
                 restoreBingoState();
                 assignCellsTheirText();
-                document.getElementById('h1-username').innerText = localStorage.getItem('username') + 's Bingo-Card'
+                document.getElementById('h1-username').innerText = localStorage.getItem('username') + "'s Bingo-Card"
             } else {
                 block(gameMode);
             }

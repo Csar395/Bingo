@@ -143,7 +143,7 @@ export function adjustFontSizeForButtons() {
     const buttons = document.querySelectorAll('.bingo-container button');
 
     buttons.forEach((button) => {
-        let fontSize = 20; // Startgröße in Pixel
+        let fontSize = 24; // Startgröße in Pixel
         const maxHeight = button.clientHeight;
         const maxWidth = button.clientWidth;
 

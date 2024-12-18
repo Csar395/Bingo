@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUI();
 });
 
+const hamMenu = document.querySelector(".hamburger-menu");
+const offScreenMenu = document.querySelector(".off-screen-menu");
+hamMenu.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
+});
+
 const loginButton = document.getElementById('login-button');
 loginButton.addEventListener('click', () => {
     localStorage.removeItem('actualState');
@@ -128,16 +135,15 @@ for (let button of bingoButtons) {
 
 /* ========== navbar Buttons ========== */
 
-const logoutButton = document.getElementById("nav-bar-logout");
-
-logoutButton.addEventListener("click", (event) => {
-    // Verhindert, dass das Dropdown-Menü schließt
-    event.stopPropagation();
+const logoutButton = document.getElementById("ham-logout-button");
+logoutButton.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
     const logoutDiv = document.createElement("div");
     const p = document.createElement("p");
     p.innerText = "Are you sure you want to logout?";
     logoutDiv.appendChild(p);
-    createPopup(document.getElementById(`${localStorage.getItem("actualState")}-box`), logoutDiv, {
+    createPopup(document.querySelector("main"), logoutDiv, {
         title: "Logout",
         buttons: [
             {
@@ -156,3 +162,60 @@ logoutButton.addEventListener("click", (event) => {
         ]
     });
 });
+
+const profileButton = document.getElementById("ham-profile-button");
+profileButton.addEventListener("click", () => {
+
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
+    const profileDiv = document.createElement("div");
+    const p = document.createElement("p");
+    const inputDiv = document.createElement("input");
+    inputDiv.id = "profile-input";
+    const button = document.createElement("button");
+    button.id = "profile-button";
+    p.innerText = `Name: ${localStorage.getItem("username")}`;
+    profileDiv.appendChild(p);
+    createPopup(document.querySelector("main"), profileDiv, {
+        title: "Profile",
+        buttons: [
+            {
+                text: "Change Name (in development)", handler: () => {
+                    profileDiv.appendChild(inputDiv);
+                    profileDiv.appendChild(button);
+                    document.querySelector(".popup-overlay").remove();
+                }
+            }
+        ]
+    })
+})
+
+const settingsButton = document.getElementById("ham-settings-button");
+settingsButton.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
+    createPopup(document.querySelector("main"), "in development", {
+        buttons: [
+            {
+                text: "Okay", handler: () => {
+                    document.querySelector(".popup-overlay").remove();
+                }
+            }
+        ]
+    });
+})
+
+const groupButton = document.getElementById("ham-group-button");
+groupButton.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
+    createPopup(document.querySelector("main"), "in development", {
+        buttons: [
+            {
+                text: "Okay", handler: () => {
+                    document.querySelector(".popup-overlay").remove();
+                }
+            }
+        ]
+    })
+})
