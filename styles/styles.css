@@ -175,7 +175,6 @@ nav ul button:hover {
 }
 
 .off-screen-menu {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     z-index: 1000;
     background: #333333;
     height: 100vh;
@@ -195,6 +194,7 @@ nav ul button:hover {
 
 .off-screen-menu.active {
     left: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 .ham-menu-button {
