@@ -4,7 +4,6 @@ import { createPopup, hide, block } from "./utils.js";
 
 // Funktion zur Überprüfung auf einen Gewinn
 export function checkForWin() {
-    const savedName = localStorage.getItem("username") || "Player";
 
     // Gewinnbedingungen: Zeilen, Spalten, Diagonalen
     const winConditions = [

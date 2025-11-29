@@ -16,8 +16,5 @@ export function login() {
 
 export function logout() {
     localStorage.clear();
-    hide(document.getElementById("join-or-create-container"));
-    hide(document.getElementById("game-mode-container"));
-    hide(document.getElementById("bingo-outer-container"));
-    block(document.getElementById("login-container"));
+    location.reload();
 }

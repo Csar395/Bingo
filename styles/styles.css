@@ -88,30 +88,29 @@ nav ul button:hover {
     cursor: pointer;
 }
 
-/* Dropdown-Menü Styles */
 .nav-bar-button {
-    position: relative; /* Für absolute Positionierung des Dropdown-Menüs */
+    position: relative;
     z-index: 1;
 }
 
 .dropdown-menu {
-    display: none; /* Standardmäßig ausgeblendet */
+    display: none;
     position: absolute;
-    top: 50px; /* Position unterhalb der Navigation */
+    top: 50px;
     background: var(--color-background-grey-style);
     border: 1px solid rgba(0, 0, 0, 0);
     padding: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-    z-index: 10; /* Über der Navigation anzeigen */
+    z-index: 10;
     border-radius: 8px;
 }
 
 .dropdown-menu button {
-    width: 100%; /* Nimmt die gesamte Breite des Dropdowns ein */
+    width: 100%;
     padding: 10px;
     border: none;
     background: none;
-    text-align: left; /* Text linksbündig */
+    text-align: left;
     cursor: pointer;
 }
 
@@ -120,7 +119,7 @@ nav ul button:hover {
     font-weight: 600;
 }
 
-.nav-bar-button:hover + .dropdown-menu, /* Dropdown anzeigen bei Button-Hover */
+.nav-bar-button:hover + .dropdown-menu,
 .nav-bar-button:focus + .dropdown-menu {
     display: block;
 }
@@ -425,44 +424,6 @@ button.clicked {
 }
 
 
-
-/* ========== Win-Box Styles ========== */
-.win-box {
-    position: absolute; /* Überlagert das Bingo-Feld */
-    top: 50%; /* Zentriert vertikal */
-    left: 50%; /* Zentriert horizontal */
-    transform: translate(-50%, -50%); /* Exakte Zentrierung */
-    background-color: rgba(255, 255, 255, 0.9); /* Halbtransparentes Weiß */
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    z-index: 1000; /* Höhere Schichtordnung */
-    text-align: center;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.win-box button {
-    border-radius: 10px;
-    border: none;
-    width: 100px;
-    height: 40px;
-    margin-top: 20px;
-    background: repeating-linear-gradient(
-    -45deg,
-    #facf43,
-    #ff9900
-    )
-}
-
-.win-box button:hover {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-    font-weight: 600;
-    background: repeating-linear-gradient(
-    -45deg,
-    #ff9900,
-    #facf43,
-    );
-}
 
 /* ========== Footer Styles ========== */
 footer {

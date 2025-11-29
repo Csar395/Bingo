@@ -163,6 +163,11 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
+const navBarLogoutButton = document.getElementById("nav-bar-logout");
+navBarLogoutButton.addEventListener("click", () => {
+    logout();
+});
+
 const profileButton = document.getElementById("ham-profile-button");
 profileButton.addEventListener("click", () => {
 
@@ -181,9 +186,16 @@ profileButton.addEventListener("click", () => {
         buttons: [
             {
                 text: "Change Name (in development)", handler: () => {
-                    profileDiv.appendChild(inputDiv);
-                    profileDiv.appendChild(button);
-                    document.querySelector(".popup-overlay").remove();
+                    const changeNameInput = document.createElement("input");
+                    changeNameInput.id = "change-name-input";
+                    changeNameInput.placeholder = "New username";
+                    profileDiv.appendChild(changeNameInput);
+
+                    const changeNameButton = document.createElement("button");
+                    changeNameButton.id = "confirm-change-name-button";
+                    changeNameButton.innerText = "Submit";
+                    changeNameButton.onclick = () => alert('This feature is in development.');
+                    profileDiv.appendChild(changeNameButton);
                 }
             }
         ]
