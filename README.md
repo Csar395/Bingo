@@ -63,8 +63,8 @@ The game should now be running in your browser!
 
 ## Contributing
 
-*(Add information here on how others can contribute to your project if you wish.)*
+...
 
 ## License
 
-*(Add license information here. For example, MIT License.)*
+...
