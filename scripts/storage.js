@@ -1,11 +1,6 @@
-// storage.scripts
 import {hide, block, adjustFontSizeForButtons } from './utils.js'
 import { assignCellsTheirText, bingoCells } from "./bingo.js";
 
-/**
- * Speichert den Zustand der Bingo-Zellen im Local Storage.
- * @param {Array} cells - Das Bingo-Zellen-Array.
- */
 export function saveBingoState(cells) {
     localStorage.setItem('bingoState', JSON.stringify(cells));
 }
@@ -19,12 +14,6 @@ export function restoreBingoState() {
         });
     }
 }
-
-
-/**
- * Lädt den Zustand der Bingo-Zellen aus dem Local Storage.
- * @returns {Array} Der gespeicherte Zustand oder ein leeres Array.
- */
 
 export function saveGameMode(mode) {
     localStorage.setItem("gameMode", mode)

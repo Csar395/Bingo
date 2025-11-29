@@ -2,86 +2,86 @@ import { createPopup, showErrorPopup } from "./utils.js";
 import { giveCellsTheirText } from "./bingo.js";
 import { hide, block } from "./utils.js";
 
-const larsBingo = [
-    "Kommt zu spät",
-    "Erzählt einen schlechten Witz",
-    "Stellt eine Rückfrage",
-    "Gibt keine klare Antwort",
-    "Vergisst etwas",
-    "Fragt nach Kaffee",
-    "Macht eine sarkastische Bemerkung",
-    "Sagt „Das habe ich dir doch gesagt“",
-    "Diskutiert endlos über ein Detail",
-    "Lacht über seinen eigenen Witz",
-    "Klopft auf den Tisch",
-    "Nutzt Fachbegriffe, die keiner versteht",
-    "Zückt sein Handy",
-    "Rollt mit den Augen",
-    "Sagt „Ich hab keine Zeit dafür“",
-    "Fragt „Was meinst du?“",
-    "Sagt „Gibt’s dazu eine Präsentation?“",
-    "Kommt unvorbereitet",
-    "Korrigiert jemand anderen",
-    "Sagt „Machen wir später“",
-    "Übersieht eine E-Mail",
-    "Sagt „Worum geht’s hier?“",
-    "Isst etwas während der Besprechung",
-    "Tippt auf dem Laptop",
-    "Beschwert sich über das Wetter"
+const christmasMovieBingo = [
+    "Snowfall in the opening scene",
+    "Santa Claus appears",
+    "Family argues at Christmas dinner",
+    "An unexpected romance begins",
+    "The Christmas present gets lost",
+    "Someone learns the 'true meaning of Christmas'",
+    "A big speech about love and togetherness",
+    "The Christmas miracle happens",
+    "Children save the day",
+    "The villain turns good",
+    "Dog or cat in a Christmas costume",
+    "Embarrassing Christmas sweater",
+    "String lights explode",
+    "A cookie recipe is passed down",
+    "Someone falls into the snow",
+    "There is a conflict that gets resolved later",
+    "The Christmas tree is being decorated",
+    "Christmas songs play in the background",
+    "Someone crafts a handmade gift",
+    "The protagonist starts out as a Christmas grump",
+    "The neighbor is annoying",
+    "Travel problems on Christmas Eve",
+    "Someone goes sledding",
+    "Someone gets a kiss under the mistletoe",
+    "The movie ends with a group photo"
 ];
-const martinBingo = [
-    "Macht einen Flachwitz",
-    "Sagt „Das wäre jetzt noch besser“",
-    "Streitet über Fußball",
-    "Sagt „Ich hab da mal was gehört“",
-    "Trinkt aus seiner Lieblingstasse",
-    "Sagt „Klassiker!“",
-    "Redet sich in Rage",
-    "Hat den falschen Tab geöffnet",
-    "Sagt „Warte kurz“",
-    "Stellt eine Frage, die nicht zum Thema passt",
-    "Erzählt von seinem Wochenende",
-    "Trägt ein kariertes Hemd",
-    "Korrigiert die Aussprache",
-    "Lacht schallend",
-    "Ruft jemanden beim falschen Namen",
-    "Schickt ein GIF in den Chat",
-    "Sagt „Moment mal“",
-    "Verwechselt zwei Begriffe",
-    "Erzählt eine Geschichte zum dritten Mal",
-    "Fragt „Habt ihr das schon gesehen?“",
-    "Trinkt während eines Zoom-Calls",
-    "Hat ein technisches Problem",
-    "Gibt ungefragt eine Meinung ab",
-    "Sagt „So läuft das bei uns immer“",
-    "Lässt etwas fallen"
+const marioKartBingo = [
+    "Someone gets hit by a blue shell",
+    "A player falls off the track",
+    "Someone shouts ‘No way!’",
+    "A banana peel ruins a perfect turn",
+    "Lightning shrinks everyone",
+    "Someone blames the controller",
+    "A red shell hits right before the finish line",
+    "Someone drifts too early",
+    "Player celebrates a lucky item",
+    "Someone gets annoyed by the rubber-banding",
+    "Bullet Bill saves a bad run",
+    "Someone picks the same character every time",
+    "A green shell ricochets and hits its owner",
+    "Someone complains about Rainbow Road",
+    "A star pushes others off the track",
+    "Player refuses to give up first place",
+    "Someone screams during the final lap",
+    "A shell hits from completely off-screen",
+    "A player forgets to accelerate at the start",
+    "Someone says ‘I was robbed!’",
+    "Player gets triple red shells",
+    "Someone boosts into a wall",
+    "Victory pose lasts too long",
+    "Player intentionally targets the leader",
+    "Someone insists the game is unfair"
 ];
-const weihnachtsfilmBingo = [
-    "Schneefall in der ersten Szene",
-    "Santa Claus taucht auf",
-    "Familie streitet beim Weihnachtsessen",
-    "Eine Romanze beginnt unerwartet",
-    "Das Weihnachtsgeschenk geht verloren",
-    "Jemand lernt die „wahre Bedeutung von Weihnachten“",
-    "Eine große Rede über Liebe und Zusammenhalt",
-    "Das Weihnachtswunder passiert",
-    "Kinder retten den Tag",
-    "Bösewicht wird gut",
-    "Hund oder Katze in Weihnachtskostüm",
-    "Peinlicher Weihnachts-Pullover",
-    "Lichterkette explodiert",
-    "Ein Keksrezept wird weitergegeben",
-    "Jemand fällt in den Schnee",
-    "Es gibt Streit, der später gelöst wird",
-    "Der Weihnachtsbaum wird geschmückt",
-    "Weihnachtslieder im Hintergrund",
-    "Jemand bastelt ein Geschenk",
-    "Der Protagonist ist anfangs ein Weihnachtsmuffel",
-    "Der Nachbar nervt",
-    "Reiseprobleme am Heiligabend",
-    "Jemand geht Schlittenfahren",
-    "Jemand bekommt einen Kuss unter dem Mistelzweig",
-    "Der Film endet mit einem Gruppenfoto"
+const footballMatchBingo = [
+    "Ref makes a controversial call",
+    "Player dramatically falls after light contact",
+    "Coach yells at the referee",
+    "Someone argues about offside",
+    "Crowd starts chanting loudly",
+    "A player complains about a foul",
+    "Goalkeeper shouts instructions",
+    "Ball goes far over the goal",
+    "Commentator says ‘They should have scored that’",
+    "A corner kick leads to nothing",
+    "Someone gets a yellow card",
+    "Fans wave their scarves",
+    "Player removes grass from his boots",
+    "Commentator mentions past statistics",
+    "The ball hits the crossbar",
+    "Assistant coach gets animated",
+    "A player asks for VAR",
+    "Two players get into a small argument",
+    "Someone claims it was handball",
+    "A substitution takes longer than expected",
+    "Commentator says ‘This could change everything’",
+    "Fans boo the opposite team",
+    "A player ties his shoelaces",
+    "Camera shows a disappointed fan",
+    "Commentator says ‘Incredible atmosphere tonight’"
 ];
 
 
@@ -111,7 +111,6 @@ export function addYourOwnCells() {
                     } else {
                         inputArray.push(document.getElementById("create-own-cells").value);
                         document.getElementById('create-own-cells').value =  "";
-                        document.getElementById('current-val').innerText += 1;
                         document.getElementById("create-own-cells").style.border = "none";
                     }
                 }
@@ -140,9 +139,9 @@ export function addYourOwnCells() {
         ]
     })
 }
-const inputArray = [];
-
 export function addYourOwnCellsInFiveMinutes() {
+
+    const inputArray = [];
 
     const createDiv = document.createElement("div");
     const label = document.createElement("label");
@@ -168,10 +167,10 @@ export function addYourOwnCellsInFiveMinutes() {
     // Countdown starten
     startCountdown(5, countdownDisplay, () => {
         // Aktion nach Ablauf des Countdowns
-        document.querySelector(".popup-overlay").remove();
-        showErrorPopup("Time's up, game starts now!");
+        if (document.querySelector(".popup-overlay")) {
+            document.querySelector(".popup-overlay").remove();
+        }
         giveCellsTheirText(inputArray);
-        document.querySelector(".popup-overlay").remove();
         hide(document.getElementById("game-mode-container"));
         block(document.getElementById("bingo-outer-container"));
         localStorage.removeItem("actualState");
@@ -230,10 +229,10 @@ function startCountdown(minutes, displayElement, onComplete) {
 export function returnPreparedCells(select) {
 
     if (select === "1") {
-        return larsBingo
+        return christmasMovieBingo
     } else if (select === "2") {
-        return martinBingo
+        return marioKartBingo
     } else if (select === "3") {
-        return weihnachtsfilmBingo
+        return footballMatchBingo
     }
 }
